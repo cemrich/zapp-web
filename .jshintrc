@@ -1,5 +1,9 @@
 {
   "browser": true,
   "devel": true,
-  "strict": "global"
+  "strict": "global",
+  "globals": {
+    "jQuery": false,
+    "videojs": false
+  }
 }

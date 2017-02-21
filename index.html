@@ -3,6 +3,9 @@
 	<head>
 		<meta charset="utf-8">
 		<title>Zapp</title>
+
+		<script src="vendor/jquery-3.1.1.min.js"></script>
+
 		<link href="vendor/videojs/video-js.min.css" rel="stylesheet">
 		<script src="vendor/videojs/video.min.js"></script>
 		<script src="vendor/videojs/lang/de.js"></script>
@@ -12,14 +15,19 @@
 	</head>
 
 	<body>
+
+		<menu id="channel-menu"></menu>
+
 		<video
 			id="player"
 			class="video-js"
 			controls
-			preload="auto"
-			poster="img/channel_logo_kika.jpg"
+			preload="none"
+			poster=""
 			data-setup='{}'>
 			<source src="http://kika_geo-lh.akamaihd.net/i/livetvkika_de@75114/master.m3u8" type="application/x-mpegURL"></source>
 		</video>
+
+		<script src="js/main.js"></script>
 	</body>
 </html>
