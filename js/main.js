@@ -2,6 +2,7 @@
 
 (function () {
 
+	var mainPage = jQuery('#page-main');
 	var menu = jQuery('#channel-menu');
 	var playerNode = jQuery('#player');
 	var player = videojs('#player');
@@ -15,6 +16,7 @@
 			channels[channel.id] = channel;
 		});
 		buildMenu();
+		showMainPage();
 		changeStateToHash();
 	});
 
@@ -24,17 +26,21 @@
 
 	function changeStateToHash() {
 		if (window.location.hash.length === 0) {
-			showMenu();
+			showMainPage();
 		} else {
 			var channelId = window.location.hash.slice(1);
-			showPlayer(channelId);
+			if (channels[channelId]) {
+				showPlayer(channelId);
+			} else {
+				showMainPage();
+			}
 		}
 	}
 
-	function showMenu() {
+	function showMainPage() {
 		player.pause();
 		playerNode.hide();
-		menu.show();
+		mainPage.show();
 	}
 
 	function showPlayer(channelId) {
@@ -42,7 +48,7 @@
 		var channel = channels[channelId];
 		player.poster(channel.logo_path);
 		player.src({ type: 'application/x-mpegURL', src: channel.stream_url });
-		menu.hide();
+		mainPage.hide();
 		playerNode.show();
 		player.ready(function () {
 			player.play();
