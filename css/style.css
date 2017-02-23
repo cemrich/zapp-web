@@ -3,6 +3,7 @@ body {
 	height: 100%;
 	margin: 0;
 	padding: 0;
+	font-family: sans-serif;
 }
 
 #channel-menu {
@@ -11,20 +12,25 @@ body {
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
-	max-width: 650px;
+	max-width: 40rem;
 	margin: auto;
 }
 #channel-menu .channel {
-	width: 8em;
+	width: 7.5rem;
 	display: flex;
-	align-items: center;
-	padding: 1em;
+	justify-content: center;
+	flex-direction: column;
+	padding: 0.6rem 1.2rem;
 	transition: padding 0.1s, box-shadow 0.2s;
+	color: grey;
+	text-decoration: none;
+	text-align: center;
+	font-size: 0.8rem;
 }
 #channel-menu .channel:hover {
 	box-shadow: 2px 2px 10px #909090;
-	padding-top: 0.9em;
-	padding-bottom: 1.1em;
+	padding-top: 0.5rem;
+	padding-bottom: 0.7rem;
 }
 #channel-menu .channel img {
 	width: 100%;
@@ -38,5 +44,5 @@ body {
 }
 .vjs-poster {
 	background-color: initial;
-	margin: 1em;
+	margin: 1rem;
 }
