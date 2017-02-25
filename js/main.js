@@ -5,6 +5,7 @@
 	var mainPage = jQuery('#page-main');
 	var menu = jQuery('#channel-menu');
 	var playerNode = jQuery('#player');
+	var playerControlBar = playerNode.find('.vjs-control-bar');
 	var player = videojs('#player');
 	var menuItem = jQuery('<a class="channel"><img/><span class="subtitle"></span></a>');
 	var channels = {};
@@ -49,6 +50,7 @@
 		player.poster(channel.logo_path);
 		player.src({ type: 'application/x-mpegURL', src: channel.stream_url });
 		mainPage.hide();
+		playerControlBar.css('background-color', channel.color);
 		playerNode.show();
 		player.ready(function () {
 			player.play();
