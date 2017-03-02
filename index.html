@@ -18,7 +18,7 @@
 
 	<body>
 		<section id="page-main">
-			<menu id="navigation-menu">
+			<menu class="navigation-menu">
 				<ul>
 					<li><a href="#">Home</a></li>
 					<li><a href="#section-about">Über Zapp</a></li>
@@ -53,15 +53,22 @@
 			</section>
 		</section>
 
-		<video
-			id="player"
-			class="video-js"
-			controls
-			preload="none"
-			poster=""
-			data-setup='{}'>
-			<source src="http://kika_geo-lh.akamaihd.net/i/livetvkika_de@75114/master.m3u8" type="application/x-mpegURL"></source>
-		</video>
+		<section id="page-video">
+			<menu class="navigation-menu">
+				<ul>
+					<li><a href="#">Home</a></li>
+				</ul>
+			</menu>
+			<video
+				id="player"
+				class="video-js"
+				controls
+				preload="none"
+				poster=""
+				data-setup='{}'>
+				<source src="http://kika_geo-lh.akamaihd.net/i/livetvkika_de@75114/master.m3u8" type="application/x-mpegURL"></source>
+			</video>
+		</section>
 
 		<script src="js/main.js"></script>
 	</body>

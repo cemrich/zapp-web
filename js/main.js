@@ -3,6 +3,8 @@
 (function () {
 
 	var mainPage = jQuery('#page-main');
+	var videoPage = jQuery('#page-video');
+	var navigationMenuVideo = videoPage.find('.navigation-menu');
 	var menu = jQuery('#channel-menu');
 	var playerNode = jQuery('#player');
 	var playerControlBar = playerNode.find('.vjs-control-bar');
@@ -21,6 +23,13 @@
 		changeStateToHash();
 	});
 
+	player.on('useractive', function () {
+		navigationMenuVideo.fadeTo(0, 1);
+	});
+	player.on('userinactive', function () {
+		navigationMenuVideo.fadeTo(1000, 0);
+	});
+
 	jQuery(window).bind('hashchange', function () { //detect hash change
 		changeStateToHash();
 	});
@@ -31,7 +40,7 @@
 		} else {
 			var channelId = window.location.hash.slice(1);
 			if (channels[channelId]) {
-				showPlayer(channelId);
+				showVideoPage(channelId);
 			} else {
 				showMainPage();
 			}
@@ -40,18 +49,19 @@
 
 	function showMainPage() {
 		player.pause();
-		playerNode.hide();
+		videoPage.hide();
 		mainPage.show();
 	}
 
-	function showPlayer(channelId) {
+	function showVideoPage(channelId) {
 		console.log('show player for ' + channelId);
 		var channel = channels[channelId];
 		player.poster(channel.logo_path);
 		player.src({ type: 'application/x-mpegURL', src: channel.stream_url });
 		mainPage.hide();
 		playerControlBar.css('background-color', channel.color);
-		playerNode.show();
+		navigationMenuVideo.css('background-color', channel.color);
+		videoPage.show();
 		player.ready(function () {
 			player.play();
 		});
