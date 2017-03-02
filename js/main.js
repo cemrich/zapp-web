@@ -9,6 +9,7 @@
 	var playerNode = jQuery('#player');
 	var playerControlBar = playerNode.find('.vjs-control-bar');
 	var player = videojs('#player');
+	var videoError = jQuery('.vjs-error-display .vjs-modal-dialog-content');
 	var menuItem = jQuery('<a class="channel"><img/><span class="subtitle"></span></a>');
 	var channels = {};
 
@@ -59,6 +60,7 @@
 		player.poster(channel.logo_path);
 		player.src({ type: 'application/x-mpegURL', src: channel.stream_url });
 		mainPage.hide();
+		videoError.css('background-color', channel.color);
 		playerControlBar.css('background-color', channel.color);
 		navigationMenuVideo.css('background-color', channel.color);
 		videoPage.show();

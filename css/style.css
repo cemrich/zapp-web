@@ -104,3 +104,12 @@ li {
 .vjs-big-play-button {
 	display: none;
 }
+.vjs-error-display {
+	position: relative;
+	height: auto;
+}
+.vjs-error-display .vjs-modal-dialog-content {
+	background-color: black;
+	height: initial;
+	top: initial;
+}
